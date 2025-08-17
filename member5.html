@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santanu - Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="Fevicon.png" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- AOS Library for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #138808;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .navbar ul li a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: #ffd700;
+      bottom: -5px;
+      left: 0;
+      border-radius: 3px;
+      animation: underlineGlow 1.5s infinite alternate;
+    }
+
+    @keyframes underlineGlow {
+      0% { box-shadow: 0 0 5px #ffd700; }
+      100% { box-shadow: 0 0 15px #ffd700; }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(120deg, #e0ffe0, #ffffff);
+      overflow: hidden;
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 15px;
+      color: #138808;
+      animation: slideGlow 2s ease-in-out infinite alternate;
+    }
+
+    .hero-section p {
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: #555;
+      max-width: 700px;
+    }
+
+    /* Profile Photo */
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #138808;
+      box-shadow: 0 0 20px rgba(19,136,8,0.3);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      margin-bottom: 25px;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 40px rgba(19,136,8,0.7);
+    }
+
+    /* Slide Glow Animation */
+    @keyframes slideGlow {
+      0% { text-shadow: 0 0 8px #138808, 0 0 15px #76c043; transform: translateX(0); }
+      50% { text-shadow: 0 0 18px #138808, 0 0 25px #76c043; transform: translateX(5px); }
+      100% { text-shadow: 0 0 8px #138808, 0 0 15px #76c043; transform: translateX(0); }
+    }
+
+    /* Floating Donate Button */
+    .donate-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(45deg, #ff9933, #ffd700);
+      color: #fff;
+      font-size: 22px;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 5px 25px rgba(255,153,51,0.6);
+      animation: float 2.5s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    .donate-btn:hover {
+      transform: scale(1.2);
+      box-shadow: 0 8px 35px rgba(255,153,51,0.9);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Member Details Section */
+    .member-details {
+      margin-top: 40px;
+      padding: 30px 20px;
+      max-width: 800px;
+      background: #ffffffcc;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .member-details h2 {
+      color: #138808;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .member-details p {
+      font-size: 18px;
+      margin: 8px 0;
+      color: #333;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      background: #138808;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 50px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo"> Gramin Glow Foundation</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="members.html" class="active">Members</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Member Profile -->
+  <section class="hero-section" data-aos="fade-up">
+    <h1 data-aos="fade-right">SANTANU</h1>
+    <p data-aos="fade-left">Role: Member</p>
+    <img src="SANTANU.jpg" alt="Member 1" class="profile-photo" data-aos="zoom-in">
+    <p data-aos="fade-up">Santanu Mandal  serves as an active member of the NGO, supporting its programs and initiatives. Members contribute ideas, participate in activities, assist in decision-making, and help implement the organization’s objectives to promote its mission and community impact.</p>
+
+    <!-- Member Details Section -->
+    <div class="member-details" data-aos="fade-up" data-aos-delay="200">
+      <h2 data-aos="fade-down">About Member</h2>
+      <p data-aos="fade-right" data-aos-delay="300"><strong>Full Name:</strong> Santanu Mandal</p>
+      <p data-aos="fade-right" data-aos-delay="400"><strong>Occupation:</strong> Bengali Honors, M.A. in Bengali, and a B.Ed degree/Social Worker / NGO Member</p>
+      <p data-aos="fade-right" data-aos-delay="500"><strong>Address:</strong> <Village->Bara Nidhi</Village->, <Post->Balighai</Post->, Block-Egra II, P.S-Egra, East Midnapore, West Bengal, India - 721422</p>
+      <p data-aos="fade-right" data-aos-delay="600"><strong>Email:</strong> msantanu6666@gmail.com</p>
+      
+      <p data-aos="fade-up" data-aos-delay="800"><strong>About:</strong> Santanu Mandal is a committed teacher with academic qualifications in Bengali (B.A. Honours, M.A.) and a B.Ed degree. With a strong educational background, he not only teaches but also inspires students to value learning and knowledge. He is deeply focused on how education can be improved and how modern teaching approaches can be adopted to make learning more effective and student-friendly.
+
+Known for his excellent communication skills, patience, and strong understanding of student needs, he creates an environment where learners feel encouraged and supported. His dedication goes beyond textbooks, as he emphasizes skill development, critical thinking, and holistic growth. With a passion for modern education and a vision for better learning systems, Santanu Mandal continues to contribute meaningfully to the field of teaching and student development.</p>
+    </div>
+  </section>
+  <!-- Dynamic Social Media Section -->
+<section class="member-social-section" data-aos="fade-up">
+  <h2 data-aos="fade-down">Connect with Santanu</h2>
+  <div class="social-cards">
+    <!-- Facebook Card -->
+    <div class="social-card facebook" data-aos="fade-right" data-aos-delay="100">
+      <i class="fab fa-facebook-f"></i>
+      <h3>Facebook</h3>
+      <p>Follow Santanu on Facebook</p>
+      <a href="https://www.facebook.com/share/1CgggYDAZZ/" target="_blank">Visit</a>
+    </div>
+
+    <!-- Instagram Card -->
+    <div class="social-card instagram" data-aos="fade-up" data-aos-delay="200">
+      <i class="fab fa-instagram"></i>
+      <h3>Instagram</h3>
+      <p>Check out Santanu on Instagram</p>
+      <a href="https://www.instagram.com/santanu606?igsh=eDhuanh1cjJtbXli" target="_blank">Visit</a>
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+  <!-- Floating Donate Button -->
+  <button class="floating-donate" aria-label="Donate">
+    <span class="heart">❤</span> Donate
+  </button>
+
+  <!-- Donate Popup -->
+  <div id="donate-popup" class="popup" role="dialog" aria-hidden="true">
+    <div class="popup-box">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h3>Scan to Donate</h3>
+      <p>Use your UPI scanner to donate directly.</p>
+      <p>UPI Number: 8389974399</p>
+      <img src="QR.jpg" alt="QR code scanner" class="qr">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Gramin Glow Foundation. All Rights Reserved.</p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+  </script>
+
+  <!-- External JavaScript -->
+  <script src="app.js"></script>
+
+</body>
+</html>

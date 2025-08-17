@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agriculture Program — Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="Fevicon.png" />
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #f4f6f8; }
+
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 50px; background: #138808; color: #fff; position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .navbar .org-name { font-weight: 800; font-size: 24px; margin-left: 10px; }
+    .navbar ul { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
+    .navbar ul li a { text-decoration: none; color: #fff; font-weight: 600; }
+    .navbar ul li a.active { border-bottom: 2px solid #ffd700; padding-bottom: 3px; }
+
+    main.section { max-width: 1100px; margin: 60px auto; padding: 0 20px; text-align: center; }
+    main h1 { font-size: 42px; color: #138808; margin-bottom: 20px; animation: glowText 2s ease-in-out infinite alternate; }
+    h2 { color: #138808; margin-top: 50px; margin-bottom: 20px; }
+
+    .events-grid {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 20px;
+    }
+
+    .event-card {
+      background: linear-gradient(145deg, #f0fff0, #e6ffe6);
+      border-radius: 15px; width: 280px; padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+      cursor: pointer; text-align: center; position: relative; overflow: hidden;
+    }
+    .event-card::before {
+      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at center, rgba(255,215,0,0.2), transparent 70%);
+      transform: rotate(45deg); transition: all 0.5s ease; z-index: 0;
+    }
+    .event-card:hover::before { top: -20%; left: -20%; width: 240%; height: 240%; }
+    .event-card:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255,215,0,0.4);
+      background: linear-gradient(145deg, #e6ffe6, #f0fff0);
+    }
+    .event-card img {
+      width: 100%; border-radius: 10px; margin-bottom: 15px; position: relative; z-index: 1;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .event-card img:hover { transform: scale(1.1) rotate(2deg); box-shadow: 0 0 20px rgba(138, 205, 38,0.5); }
+    .event-card h3, .event-card p, .event-card a { position: relative; z-index: 1; }
+    .event-card h3 { color: #138808; margin-bottom: 10px; }
+    .event-card p { color: #555; font-size: 14px; }
+    .event-card a {
+      display: inline-block; margin-top: 10px; text-decoration: none;
+      padding: 10px 20px; background: linear-gradient(45deg, #76c043, #138808);
+      color: #fff; border-radius: 50px; font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .event-card a:hover {
+      transform: scale(1.1); box-shadow: 0 0 20px #76c043;
+      background: linear-gradient(45deg, #138808, #76c043);
+    }
+
+    .center-links { margin-top: 50px; }
+    .btn {
+      padding: 15px 30px; margin: 10px; border-radius: 50px; border: none;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      background: linear-gradient(45deg, #76c043, #ffd700); color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(255,215,0,0.6); }
+    .btn.outline { background: #fff; color: #138808; border: 2px solid #138808; }
+
+    footer { text-align: center; padding: 25px 0; background: #138808; color: #fff; font-weight: 600; margin-top: 60px; }
+
+    @keyframes glowText {
+      0% { text-shadow: 0 0 8px #138808, 0 0 15px #76c043; }
+      50% { text-shadow: 0 0 18px #138808, 0 0 25px #76c043; }
+      100% { text-shadow: 0 0 8px #138808, 0 0 15px #76c043; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="home-link"></a>
+      <img src="LOGO.png" class="nav-logo" alt="">
+      <span class="org-name">Gramin Glow Foundation</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="agriculture.html" class="nav-link active">Agriculture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section program-detail">
+    <h1>Agriculture Program Events</h1>
+
+    <!-- Past Events -->
+    <h2>Past Events</h2>
+    <section class="events-grid">
+      <div class="event-card" data-aos="fade-right">
+        <img src="images/agri1.jpg" alt="Event 1">
+        <h3>Community Farming Workshop</h3>
+        <p>Educated farmers on organic farming techniques.</p>
+        <a href="https://example.com/agri1" target="_blank">Open Event</a>
+      </div>
+      <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/agri2.jpg" alt="Event 2">
+        <h3>Tree Plantation Drive</h3>
+        <p>Planted trees in local villages to improve greenery.</p>
+        <a href="https://example.com/agri2" target="_blank">Open Event</a>
+      </div>
+      <div class="event-card" data-aos="fade-left" data-aos-delay="200">
+        <img src="images/agri3.jpg" alt="Event 3">
+        <h3>Organic Market Awareness</h3>
+        <p>Promoted organic products and sustainable agriculture.</p>
+        <a href="https://example.com/agri3" target="_blank">Open Event</a>
+      </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <h2>Upcoming Events</h2>
+    <section class="events-grid">
+      <div class="event-card" data-aos="fade-right">
+        <img src="images/upcoming_agri1.jpg" alt="Upcoming Event 1">
+        <h3>Soil Health Camp</h3>
+        <p>Farmers will learn soil testing and nutrient management.</p>
+        <a href="https://example.com/upcoming_agri1" target="_blank">Open Event</a>
+      </div>
+      <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/upcoming_agri2.jpg" alt="Upcoming Event 2">
+        <h3>Irrigation Techniques Seminar</h3>
+        <p>Workshop on modern and efficient irrigation methods.</p>
+        <a href="https://example.com/upcoming_agri2" target="_blank">Open Event</a>
+      </div>
+      <div class="event-card" data-aos="fade-left" data-aos-delay="200">
+        <img src="images/upcoming_agri3.jpg" alt="Upcoming Event 3">
+        <h3>Farmer Market Expo</h3>
+        <p>Upcoming event to showcase local agricultural products.</p>
+        <a href="https://example.com/upcoming_agri3" target="_blank">Open Event</a>
+      </div>
+    </section>
+
+    <div class="center-links">
+      <button class="btn" onclick="toggleDonate()">Donate to Agriculture</button>
+      <a class="btn outline" href="programs.html" target="_blank">Back to Programs</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">© 2025 Gramin Glow Foundation</div>
+  </footer>
+
+  <!-- Donate popup -->
+  <div id="donate-popup" class="popup">
+    <div class="popup-box">
+      <button class="popup-close" onclick="toggleDonate()">&times;</button>
+      <h3>Scan to Donate</h3>
+      <H4>Number -- 8389974399</H4>
+      <img src="QR.jpg" class="qr" alt="qr">
+    </div>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+    function toggleDonate() {
+      const popup = document.getElementById('donate-popup');
+      popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

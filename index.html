@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gramin Glow Foundation</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="Fevicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Font: Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <img src="LOGO.png" alt="logo">
+      <span>Loading...</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="home-link">
+        <img src="LOGO.png" alt="logo" class="nav-logo">
+        <span class="org-name">GRAMIN GLOW FOUNDATION</span>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="flag-text"> "Glow Together, Glowing Forever" </h1>
+      <p>Health • Education • Agriculture — Sustainable support for villages.</p>
+      <div class="hero-cta">
+        <a class="btn" href="programs.html" target="_blank">Explore Programs</a>
+        <a class="btn outline" href="members.html" target="_blank">Meet Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Highlights Section -->
+<section class="section featured-highlights">
+  <h2>Our Highlights</h2>
+  <div class="highlight-carousel">
+    <div class="highlight-track">
+      <div class="highlight-card">
+        <img src="image-e2.jpg" alt="Highlight 1">
+      </div>
+      <div class="highlight-card">
+        <img src="image-e3.jpg" alt="Highlight 2">
+      </div>
+      <div class="highlight-card">
+        <img src="image-e4.jpg" alt="Highlight 3">
+      </div>
+      <div class="highlight-card">
+        <img src="image-e13.jpg" alt="Highlight 4">
+      </div>
+      <div class="highlight-card">
+        <img src="image-e10.jpg" alt="Highlight 4">
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+.featured-highlights {
+  text-align: center;
+  margin: 60px 0;
+  padding: 50px 10px; /* bigger section */
+}
+.featured-highlights h2 {
+  font-size: 42px;
+  color: #51ff00;
+  margin-bottom: 40px;
+  animation: glowText 2.5s ease-in-out infinite alternate;
+}
+
+.highlight-carousel {
+  overflow: hidden;
+  padding: 0 5px;
+}
+.highlight-track {
+  display: flex;
+  gap: 25px;
+  animation: slideHighlights 30s linear infinite;
+}
+.highlight-card {
+  flex: 0 0 420px; /* bigger images */
+  overflow: hidden;
+  cursor: pointer;
+  animation: floatMotion 4s ease-in-out infinite alternate;
+}
+.highlight-card img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+.highlight-card:hover img {
+  transform: scale(1.12) rotate(2deg);
+  filter: brightness(1.15);
+}
+.highlight-card:hover {
+  transform: translateY(-10px) rotate(-1deg);
+}
+
+/* Continuous sliding animation */
+@keyframes slideHighlights {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Subtle floating motion */
+@keyframes floatMotion {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .highlight-card {
+    flex: 0 0 85%;
+  }
+  .highlight-track {
+    gap: 15px;
+  }
+}
+</style>
+
+
+
+<!-- Latest Events Carousel -->
+<section class="section latest-events">
+  <h2>Latest Events</h2>
+  <div class="carousel single-carousel">
+    <div class="carousel-track">
+
+      <!-- Event 1 -->
+      <a class="event-card" href="event1.html" target="_blank">
+        <img src="image-e3.jpg" alt="SWASTHYA BORNOMALA">
+        <h3>SWASTHYA BORNOMALA</h3>
+        <p><b>Date:</b> 11th July 2025</p>
+        <p>Health Hygiene Awareness Program.</p>
+      </a>
+
+      
+
+    </div>
+  </div>
+
+  <!-- View all events button -->
+  <div class="center-links" style="margin-top: 30px;">
+    <a class="btn" href="programs.html" target="_blank">View All Events</a>
+  </div>
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.latest-events h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: #2c3e50; /* Dark formal color */
+  font-size: 38px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.event-card {
+  flex: 0 0 300px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.event-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.event-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(44,62,80,0.2);
+}
+
+.event-card h3 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.event-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(44,62,80,0.15);
+}
+
+/* Scrollbar hide for clean look */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-track {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
+
+/* Center button */
+.center-links .btn {
+  font-weight: 600;
+  background: linear-gradient(45deg, #2c3e50, #34495e);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.center-links .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(44,62,80,0.3);
+}
+</style>
+
+
+
+   
+
+  <!-- PROGRAMS summary -->
+  <section class="section programs-preview">
+    <h2>Key Programs</h2>
+    <div class="program-grid">
+      <div class="program-card dynamic-program" role="button" onclick="openPage('health.html')">
+        <h3>Health</h3>
+        <p>Medical camps, awareness & preventive care.</p>
+      </div>
+      <div class="program-card dynamic-program" role="button" onclick="openPage('education.html')">
+        <h3>Education</h3>
+        <p>Literacy, digital classrooms and teacher training.</p>
+      </div>
+      <div class="program-card dynamic-program" role="button" onclick="openPage('agriculture.html')">
+        <h3>Agriculture</h3>
+        <p>Sustainable farming, demo plots and market access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERS carousel preview -->
+  <section class="section members-preview">
+    <h2>Our Team</h2>
+    <div class="carousel small">
+      <div class="carousel-track">
+        <a class="member-card" href="member1.html" target="_blank"><img src="MONISANKAR.jpg" alt=""><p>MONISANKAR OJHA<br><span>President</span></p></a>
+        <a class="member-card" href="member2.html" target="_blank"><img src="ASHOKE.jpg" alt=""><p>ASHOKE SANTRA<br><span>Secretary</span></p></a>
+        <a class="member-card" href="member3.html" target="_blank"><img src="BISHAMBHAR.jpg" alt=""><p>BISHAMBHAR MAITY<br><span>Treasurer</span></p></a>
+        <a class="member-card" href="member4.html" target="_blank"><img src="SUMAN.jpg" alt=""><p>SUMAN MANDAL<br><span>Member</span></p></a>
+        <a class="member-card" href="member5.html" target="_blank"><img src="SANTANU.jpg" alt=""><p>SANTANU MANDAL<br><span>Member</span></p></a>
+        <a class="member-card" href="member6.html" target="_blank"><img src="RUPAM.jpg" alt=""><p>RUPAM OJHA<br><span>Member</span></p></a>
+        <a class="member-card" href="member7.html" target="_blank"><img src="ANINDYA.jpg" alt=""><p>ANINDYA SAU<br><span>Member</span></p></a>
+        <!-- duplicate sequence for smooth infinite scroll -->
+        <a class="member-card" href="member1.html" target="_blank"><img src="MONISANKAR.jpg" alt=""><p>MONISANKAR OJHA<br><span>President</span></p></a>
+        <a class="member-card" href="member2.html" target="_blank"><img src="ASHOKE.jpg" alt=""><p>ASHOKE SANTRA<br><span>Secretary</span></p></a>
+      </div>
+    </div>
+    <div class="center-links">
+      <a class="btn" href="members.html" target="_blank">View All Members</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><b>Address:</b> Kamalpur, Balighai, Egra-II, East Midnapore, West Bengal-721422</p>
+        <p><b>Phone:</b> +91 9046927764</p>
+        <p><b>Email:</b> graminglowfoundation2025@gmail.com</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/share/171ivrMM7K/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://www.instagram.com/graminglowfoundation" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://www.linkedin.com/company/gramin-glow-foundation/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a href="https://medium.com/@graminglowfoundation2025" target="_blank"><i class="fab fa-medium-m"></i> Medium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-section" data-aos="fade-up">
+    <h2 data-aos="fade-down">Send Us a Message</h2>
+    <form id="contact-form" data-aos="fade-up" data-aos-delay="200">
+      <input type="text" id="name" placeholder="Your Name" required data-aos="fade-right" data-aos-delay="300">
+      <input type="email" id="email" placeholder="Your Email" required data-aos="fade-right" data-aos-delay="400">
+      <textarea id="message" placeholder="Your Message" required data-aos="fade-right" data-aos-delay="500"></textarea>
+      <button type="submit" data-aos="zoom-in" data-aos-delay="600">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Gramin Glow Foundation. All Rights Reserved.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/171ivrMM7K/" target="_blank" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/graminglowfoundation" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/gramin-glow-foundation/" target="_blank" class="social"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://medium.com/@graminglowfoundation2025" target="_blank" class="social"><i class="fab fa-medium-m"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Donate Button -->
+  <button class="floating-donate" aria-label="Donate">
+    <span class="heart">❤</span> Donate
+  </button>
+
+  <!-- Donate Popup -->
+  <div id="donate-popup" class="popup" role="dialog" aria-hidden="true">
+    <div class="popup-box">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h3>Scan to Donate</h3>
+      <p>Use your UPI scanner to donate directly.</p>
+      <p>UPI Number: 8389974399</p>
+      <img src="QR.jpg" alt="QR code scanner" class="qr">
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="app.js"></script>
+
+  <!-- Mailto JS -->
+  <script>
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const mailtoLink = `mailto:graminglowfoundation2025@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+      window.location.href = mailtoLink;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Programs - Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="Fevicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="navbar">
+    <div class="nav-left">
+     <a href="index.html" class="home-link">
+        <img src="LOGO.png" alt="logo" class="nav-logo">
+        <span class="org-name">GRAMIN GLOW FOUNDATION</span>
+     </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="programs.html" class="nav-link active">Programs</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero small">
+    <div class="hero-inner">
+      <h1>Our Key Programs</h1>
+      <p>Working to empower rural India through <b>Health</b>, <b>Education</b>, and <b>Agriculture</b>.</p>
+    </div>
+  </section>
+
+  <!-- PROGRAM GRID -->
+  <section class="section">
+    <div class="program-grid large">
+      <div class="program-card" onclick="openPage('health.html')">
+        <h3>Health</h3>
+        <p>Free medical camps, women’s health, awareness drives and preventive care programs.</p>
+        <button class="btn">Learn More</button>
+      </div>
+
+      <div class="program-card" onclick="openPage('education.html')">
+        <h3>Education</h3>
+        <p>Village schools, digital learning, literacy programs and teacher training initiatives.</p>
+        <button class="btn">Learn More</button>
+      </div>
+
+      <div class="program-card" onclick="openPage('agriculture.html')">
+        <h3>Agriculture</h3>
+        <p>Sustainable farming practices, crop diversification, and market linkage support.</p>
+        <button class="btn">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2025 Gramin Glow Foundation</div>
+      <div class="socials">
+        <a href="https://www.facebook.com/share/171ivrMM7K/">Facebook</a>
+        <a href="https://www.instagram.com/graminglowfoundation?igsh=MXQ5MGN4ZXE2NWVqcQ==">Instagram</a>
+        <a href="https://www.linkedin.com/company/gramin-glow-foundation/">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <!-- Floating Donate Button -->
+  <button class="floating-donate" aria-label="Donate">
+    <span class="heart">❤</span> Donate
+  </button>
+
+  <!-- Donate Popup -->
+  <div id="donate-popup" class="popup" role="dialog" aria-hidden="true">
+    <div class="popup-box">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h3>Scan to Donate</h3>
+      <p>Use your UPI scanner to donate directly.</p>
+      <p>UPI Number: 8389974399</p>
+      <img src="QR.jpg" alt="QR code scanner" class="qr">
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

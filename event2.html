@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details — Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="Fevicon.png" />
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #f4f6f8; }
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 50px; background: #138808; color: #fff; position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .navbar .org-name { font-weight: 800; font-size: 24px; margin-left: 10px; }
+    .navbar ul { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
+    .navbar ul li a { text-decoration: none; color: #fff; font-weight: 600; }
+    .navbar ul li a.active { border-bottom: 2px solid #ffd700; padding-bottom: 3px; }
+
+    main.section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+    h1 { text-align: center; font-size: 42px; color: #138808; animation: glowText 2s ease-in-out infinite alternate; }
+    h2 { color: #138808; margin: 40px 0 20px 0; }
+
+    .event-overview { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; margin-top: 40px; }
+    .event-images, .event-info { flex: 1 1 400px; }
+    .event-images img, .event-images video { width: 100%; border-radius: 15px; margin-bottom: 20px; transition: transform 0.5s ease; }
+    .event-images img:hover, .event-images video:hover { transform: scale(1.05); }
+
+    .event-info p { font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 15px; }
+    .event-info .label { font-weight: 600; color: #138808; }
+
+    .gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px; }
+    .gallery img { width: 250px; border-radius: 15px; transition: transform 0.5s ease, box-shadow 0.5s ease; }
+    .gallery img:hover { transform: scale(1.1); box-shadow: 0 8px 25px rgba(19,136,8,0.4); }
+
+    .video-section { margin-top: 40px; text-align: center; }
+    .video-section video { width: 100%; max-width: 700px; border-radius: 15px; }
+
+    /* Media Library Section */
+    .media-library { margin-top: 50px; text-align: center; }
+    .media-grid {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+    .media-card {
+      flex: 1 1 250px;
+      background: linear-gradient(145deg, #f0fff0, #e6ffe6);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .media-card:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 15px 40px rgba(19,136,8,0.4);
+    }
+    .media-card img, .media-card video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .media-card img:hover, .media-card video:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(19,136,8,0.5);
+    }
+    .media-card p { color: #138808; font-weight: 600; margin-top: 5px; }
+
+    .center-links { margin-top: 50px; text-align: center; }
+    .btn {
+      padding: 15px 30px; margin: 10px; border-radius: 50px; border: none;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      background: linear-gradient(45deg, #76c043, #ffd700); color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover { transform: scale(1.1); box-shadow: 0 0 20px rgba(255,215,0,0.6); }
+    .btn.outline { background: #fff; color: #138808; border: 2px solid #138808; }
+
+    footer { text-align: center; padding: 25px 0; background: #138808; color: #fff; font-weight: 600; margin-top: 60px; }
+
+    @keyframes glowText {
+      0% { text-shadow: 0 0 8px #138808, 0 0 15px #76c043; }
+      50% { text-shadow: 0 0 18px #138808, 0 0 25px #76c043; }
+      100% { text-shadow: 0 0 8px #138808, 0 0 15px #76c043; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="home-link"></a>
+      <img src="LOGO.png" class="nav-logo" alt="">
+      <span class="org-name">Gramin Glow Foundation</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="event-details.html" class="nav-link active">Event Details</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section">
+    <h1>Event Details</h1>
+
+    <section class="event-overview" data-aos="fade-up">
+      <div class="event-images">
+        <img src="images/event_main.jpg" alt="Main Event Image">
+        <video controls>
+          <source src="videos/event_video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="event-info">
+        <p><span class="label">Event Name:</span> Community Health Camp 2025</p>
+        <p><span class="label">Date:</span> 15th August 2025</p>
+        <p><span class="label">Location:</span> Egra, Purba Medinipur, West Bengal</p>
+        <p><span class="label">Description:</span> A full-day health camp including free check-ups, nutritional guidance, and awareness sessions on hygiene and preventive care.</p>
+        <p><span class="label">Contact:</span> info@graminglow.org | +91 9876543210</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <h2>Event Gallery</h2>
+    <section class="gallery" data-aos="fade-up">
+      <img src="images/event1.jpg" alt="Event Image 1">
+      <img src="images/event2.jpg" alt="Event Image 2">
+      <img src="images/event3.jpg" alt="Event Image 3">
+      <img src="images/event4.jpg" alt="Event Image 4">
+    </section>
+
+    <!-- Video Section -->
+    <h2>Event Video Highlights</h2>
+    <div class="video-section" data-aos="fade-up">
+      <video controls>
+        <source src="videos/event_highlights.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Media Library Section -->
+    <h2>Media Library</h2>
+    <section class="media-library" data-aos="fade-up">
+      <div class="media-grid">
+        <!-- Image Card -->
+        <div class="media-card">
+          <video controls>
+        <source src="videos/event_highlights.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+          <p>Opening Ceremony</p>
+        </div>
+        <div class="media-card">
+          <video controls>
+        <source src="videos/event_highlights.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+          <p>Workshop Session</p>
+        </div>
+
+        <!-- Video Card -->
+        <div class="media-card">
+          <video controls>
+            <source src="videos/media1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Health Camp Highlights</p>
+        </div>
+        <div class="media-card">
+          <video controls>
+            <source src="videos/media2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Nutrition Awareness Session</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="center-links">
+      <a class="btn outline" href="programs.html">Back to Programs</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">© 2025 Gramin Glow Foundation</div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+  </script>
+</body>
+</html>
