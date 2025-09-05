@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bishambhar Maity - Treasurer | Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="../global image/Fevicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8fafc;
+    }
+
+    /* Premium Navigation */
+    .premium-navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #2c3e50;
+    }
+
+    .nav-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .nav-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #64748b;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #00796b;
+      background: rgba(0, 121, 107, 0.1);
+    }
+
+    /* Premium Hero Section */
+    .premium-hero {
+      margin-top: 80px;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      position: relative;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    .premium-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="finance" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1.5" fill="%23ffffff" opacity="0.1"><animate attributeName="opacity" values="0.1;0.4;0.1" dur="4s" repeatCount="indefinite"/></circle></pattern></defs><rect width="100" height="100" fill="url(%23finance)"/></svg>') repeat;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .member-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #ffffff, #ffeaa7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Premium Profile Photo */
+    .profile-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 40px;
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .profile-ring {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f093fb, #f5576c, #f093fb);
+      background-size: 200% 200%;
+      animation: profileGlow 3s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes profileGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Premium Content Sections */
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #f093fb, #f5576c);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Premium Info Cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .info-card:hover::before {
+      left: 100%;
+    }
+
+    .info-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 24px;
+    }
+
+    .info-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .info-text {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Premium Social Section */
+    .social-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 80px 20px;
+      border-radius: 30px;
+      margin: 40px 0;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .social-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    .social-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .social-card.facebook .social-icon {
+      background: linear-gradient(135deg, #1877f2, #42a5f5);
+    }
+
+    .social-card.instagram .social-icon {
+      background: linear-gradient(135deg, #e1306c, #f56040, #fccc63);
+    }
+
+    .social-card:hover .social-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .social-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .social-desc {
+      color: #64748b;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .social-link {
+      display: inline-block;
+      padding: 10px 25px;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(240, 147, 251, 0.4);
+    }
+
+    /* Premium Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      padding: 80px 20px;
+      border-radius: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+      pointer-events: none;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .contact-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-item i {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #f093fb;
+    }
+
+    .contact-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .contact-item p {
+      opacity: 0.9;
+      font-size: 0.9rem;
+    }
+
+    /* Premium Footer */
+    .premium-footer {
+      background: #1a202c;
+      color: white;
+      padding: 60px 20px 30px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      color: #a0aec0;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #a0aec0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #f093fb;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #2d3748;
+      padding-top: 20px;
+      color: #718096;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .info-grid,
+      .social-grid,
+      .contact-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .premium-hero {
+        padding: 60px 15px;
+      }
+
+      .content-wrapper {
+        padding: 60px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Premium Navigation -->
+  <nav class="premium-navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-brand">
+        <img src="../global image/LOGO.png" alt="Logo" class="nav-logo">
+        <span class="nav-title">Gramin Glow Foundation</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../programs.html">Programs</a></li>
+        <li><a href="../members.html" class="active">Members</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Premium Hero Section -->
+  <section class="premium-hero">
+    <div class="hero-content">
+      <div class="member-badge">
+        <i class="fas fa-calculator"></i> Treasurer
+      </div>
+      <h1 class="hero-title">Bishambhar Maity</h1>
+      <p class="hero-subtitle">Financial Expert & Strategic Planner</p>
+      
+      <div class="profile-container">
+        <div class="profile-ring"></div>
+        <img src="BISHAMBHAR.jpg" alt="Bishambhar Maity" class="profile-photo">
+      </div>
+      
+      <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; opacity: 0.9;">
+        The Treasurer manages financial affairs, oversees budgeting and accounting, ensures transparent records, and maintains compliance with statutory financial requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+    <!-- About Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Professional Profile</h2>
+        <p class="section-subtitle">Financial expert with strong analytical skills and business acumen</p>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="info-title">Financial Leadership</h3>
+          <p class="info-text">Treasurer of Gramin Glow Foundation, managing budgets, financial reporting, and ensuring transparent fund utilization for maximum impact.</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <h3 class="info-title">Education</h3>
+          <p class="info-text">Honours in Accounting and Finance, specializing in financial management, business analysis, and strategic planning.</p>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3 class="info-title">Expertise</h3>
+          <p class="info-text">Financial management, business development, strategic planning, accounting, and sustainable growth strategies for social organizations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+      <div class="section-header">
+        <h2 class="section-title">Connect with Bishambhar</h2>
+        <p class="section-subtitle">Follow his financial insights and business strategies</p>
+      </div>
+      
+      <div class="social-grid">
+        <div class="social-card facebook">
+          <div class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <h3 class="social-title">Facebook</h3>
+          <p class="social-desc">Business insights and financial updates</p>
+          <a href="https://www.facebook.com/share/1CdfJSUGwP/" target="_blank" class="social-link">Visit Profile</a>
+        </div>
+        
+        <div class="social-card instagram">
+          <div class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <h3 class="social-title">Instagram</h3>
+          <p class="social-desc">Behind-the-scenes financial management</p>
+          <a href="https://www.instagram.com/bishambharmaity?igsh=bW9mZXJ3ZDJoeTI4" target="_blank" class="social-link">Visit Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-section">
+      <div class="contact-content">
+        <h2 class="section-title" style="color: white;">Get in Touch</h2>
+        <p style="opacity: 0.9; margin-bottom: 40px;">Connect with Bishambhar for financial consultations, business partnerships, or organizational development</p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Location</h4>
+            <p>Nimak Bar, Uttar Tajpur, Egra-II<br>East Midnapore, West Bengal - 721422</p>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <p>bishambharmaity@gmail.com</p>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-graduation-cap"></i>
+            <h4>Specialization</h4>
+            <p>Accounting & Finance Honours<br>Financial Management & Analysis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Premium Footer -->
+  <footer class="premium-footer">
+    <div class="footer-content">
+      <img src="../global image/LOGO.png" alt="Gramin Glow Foundation" class="footer-logo">
+      <p class="footer-text">
+        Empowering rural communities through sustainable development, transparent financial management, and strategic growth.
+      </p>
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../programs.html">Programs</a>
+        <a href="../members.html">Team</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Gramin Glow Foundation. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.premium-navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+      }
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards and sections
+    document.querySelectorAll('.info-card, .social-card, .contact-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

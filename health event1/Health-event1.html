@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWASTHYA BORNOMALA — Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="../global image/Fevicon.png" />
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --primary-health: #e74c3c;
+      --secondary-health: #c0392b;
+      --accent-blue: #3498db;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --bg-light: #f8fffe;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --success-green: #27ae60;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 50px; background: var(--white); color: var(--text-dark); position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08); backdrop-filter: blur(10px);
+    }
+    .nav-left { display: flex; align-items: center; gap: 15px; }
+    .nav-logo { width: 45px; height: 45px; border-radius: 8px; }
+    .navbar .org-name { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 22px; color: var(--primary-health); }
+    .navbar ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+    .navbar ul li a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+    .navbar ul li a:hover { color: var(--primary-health); }
+    .navbar ul li a.active { color: var(--primary-health); position: relative; }
+    .navbar ul li a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--accent-blue); }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-health) 0%, var(--secondary-health) 100%);
+      color: var(--white); padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="health" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23health)"/></svg>') repeat;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; }
+    .hero-subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; font-weight: 300; }
+    .event-badge {
+      display: inline-block; background: var(--accent-blue); color: var(--white);
+      padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;
+    }
+
+    main.section { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-health); margin-bottom: 15px; text-align: center; }
+    .section-subtitle { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto 60px; text-align: center; }
+
+    .event-overview {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px;
+      background: var(--white); padding: 60px; border-radius: 30px; box-shadow: var(--shadow);
+    }
+    .event-media { position: relative; }
+    .event-media img, .event-media video {
+      width: 100%; border-radius: 20px; margin-bottom: 20px;
+      transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .event-media img:hover, .event-media video:hover { transform: translateY(-5px); }
+    .play-overlay {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(231,76,60,0.9); color: var(--white); width: 80px; height: 80px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; cursor: pointer; transition: all 0.3s ease;
+    }
+    .play-overlay:hover { transform: translate(-50%, -50%) scale(1.1); }
+
+    .event-details { }
+    .detail-item {
+      display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px;
+      padding: 20px; background: #f8f9fa; border-radius: 15px; border-left: 4px solid var(--primary-health);
+    }
+    .detail-icon {
+      width: 40px; height: 40px; background: var(--primary-health); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .detail-content h4 {
+      color: var(--primary-health); font-weight: 600; margin-bottom: 5px;
+    }
+    .detail-content p { color: var(--text-light); margin: 0; }
+
+    .impact-stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;
+      margin: 80px 0; padding: 60px; background: var(--white); border-radius: 30px; box-shadow: var(--shadow);
+    }
+    .stat-item {
+      text-align: center; padding: 30px 20px;
+    }
+    .stat-icon {
+      width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-health), var(--secondary-health));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--white); font-size: 2rem;
+    }
+    .stat-number {
+      font-size: 2.5rem; font-weight: 700; color: var(--primary-health); margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 1.1rem; color: var(--text-light); font-weight: 500;
+    }
+
+    .activities-section {
+      background: var(--white); padding: 80px 60px; margin: 80px 0;
+      border-radius: 30px; box-shadow: var(--shadow);
+    }
+    .activities-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
+    }
+    .activity-card {
+      text-align: center; padding: 40px 30px; background: #f8f9fa;
+      border-radius: 20px; transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .activity-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--primary-health), var(--accent-blue));
+    }
+    .activity-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+    .activity-icon {
+      width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-health), var(--accent-blue));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 25px; color: var(--white); font-size: 2rem;
+    }
+    .activity-card h3 {
+      color: var(--primary-health); margin-bottom: 15px; font-size: 1.3rem;
+    }
+    .activity-card p {
+      color: var(--text-light); line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px;
+    }
+    .gallery-item {
+      position: relative; overflow: hidden; border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;
+    }
+    .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .gallery img {
+      width: 100%; height: 250px; object-fit: cover; transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: var(--white); padding: 20px; transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+    .cta-section {
+      text-align: center; margin: 80px 0;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 35px; margin: 10px; border-radius: 30px; border: none;
+      font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-outline {
+      background: transparent; color: var(--primary-health); border: 2px solid var(--primary-health);
+    }
+    .btn-outline:hover { background: var(--primary-health); color: var(--white); }
+
+    footer {
+      background: var(--text-dark); color: var(--white); padding: 50px 0 30px;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;
+    }
+    .footer-links a {
+      color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+      font-size: 0.9rem; opacity: 0.7;
+    }
+
+    /* Mobile Navigation */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+      align-self: flex-end;
+      margin-bottom: 5px;
+    }
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-dark);
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+      }
+      .navbar nav {
+        display: none;
+        width: 100%;
+        order: 3;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+      .navbar nav.active {
+        display: block;
+      }
+      .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        background: var(--white);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        margin: 15px 20px 0 20px;
+        text-align: center;
+        align-items: center;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .org-name {
+        font-size: 18px !important;
+      }
+      .nav-logo {
+        width: 35px !important;
+        height: 35px !important;
+      }
+      
+      .hero-section {
+        padding: 60px 0;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+      .event-badge {
+        font-size: 0.8rem;
+        padding: 6px 15px;
+      }
+      
+      main.section {
+        padding: 40px 15px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .section-subtitle {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+      
+      .event-overview {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+        margin-bottom: 40px;
+      }
+      .detail-item {
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+      .detail-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+      .detail-content h4 {
+        font-size: 1rem;
+      }
+      .detail-content p {
+        font-size: 0.9rem;
+      }
+      
+      .impact-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 30px 20px;
+        margin: 40px 0;
+      }
+      .stat-item {
+        padding: 20px 10px;
+      }
+      .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      .stat-number {
+        font-size: 2rem;
+      }
+      .stat-label {
+        font-size: 0.9rem;
+      }
+      
+      .activities-section {
+        padding: 40px 20px;
+        margin: 40px 0;
+      }
+      .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .activity-card {
+        padding: 25px 20px;
+      }
+      .activity-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      .activity-card h3 {
+        font-size: 1.1rem;
+      }
+      .activity-card p {
+        font-size: 0.9rem;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .gallery img {
+        height: 200px;
+      }
+      .gallery-overlay {
+        padding: 15px;
+      }
+      .gallery-overlay p {
+        font-size: 0.9rem;
+      }
+      
+      .btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .footer-bottom {
+        font-size: 0.8rem;
+        padding: 0 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+      
+      .impact-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .event-overview {
+        padding: 20px 15px;
+      }
+      
+      .activities-section {
+        padding: 30px 15px;
+      }
+      
+      .play-overlay {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="home-link"></a>
+      <img src="../global image/LOGO.png" class="nav-logo" alt="">
+      <span class="org-name">Gramin Glow Foundation</span>
+    </div>
+    <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="mobile-nav">
+      <ul>
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="../programs.html" class="nav-link">Programs</a></li>
+        <li><a href="../members.html" class="nav-link">Members</a></li>
+        <li><a href="../health.html" class="nav-link active">Health</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="event-badge" data-aos="fade-up">Health & Hygiene Program</div>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">SWASTHYA BORNOMALA</h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+        A transformative health and hygiene awareness program empowering children in rural West Bengal with essential life skills and healthy habits
+      </p>
+    </div>
+  </section>
+
+  <main class="section">
+    <!-- Event Overview -->
+    <section class="event-overview" data-aos="fade-up">
+      <div class="event-media">
+        <img src="First Event.jpg" alt="SWASTHYA BORNOMALA Event">
+        <div class="play-overlay" onclick="document.querySelector('#event-video').style.display='block'; document.querySelector('#event-video').play(); this.style.display='none';">
+          <i class="fas fa-play"></i>
+        </div>
+        <video id="event-video" controls style="display: none;">
+          <source src="first video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="event-details">
+        <div class="detail-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="detail-content">
+            <h4>Event Date</h4>
+            <p>11th July 2025</p>
+          </div>
+        </div>
+        <div class="detail-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="detail-content">
+            <h4>Location</h4>
+            <p>Tajpur, Egra, Purba Medinipur, West Bengal</p>
+          </div>
+        </div>
+        <div class="detail-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="detail-icon"><i class="fas fa-users"></i></div>
+          <div class="detail-content">
+            <h4>Target Audience</h4>
+            <p>Children in rural communities</p>
+          </div>
+        </div>
+        <div class="detail-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="detail-icon"><i class="fas fa-heart"></i></div>
+          <div class="detail-content">
+            <h4>Program Focus</h4>
+            <p>Health & Hygiene Awareness, Disease Prevention, Healthy Habits</p>
+          </div>
+        </div>
+        <div class="detail-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+          <div class="detail-content">
+            <h4>Contact</h4>
+            <p>graminglowfoundation2025@gmail.com<br>+91 9046927764</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="impact-stats" data-aos="fade-up">
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-child"></i></div>
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Children Reached</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-home"></i></div>
+        <div class="stat-number">5</div>
+        <div class="stat-label">Villages Covered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-hands-wash"></i></div>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Hygiene Training</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon"><i class="fas fa-award"></i></div>
+        <div class="stat-number">70+</div>
+        <div class="stat-label">Prizes Distributed</div>
+      </div>
+    </section>
+
+    <!-- Program Activities -->
+    <section class="activities-section" data-aos="fade-up">
+      <h2 class="section-title">Program Activities</h2>
+      <p class="section-subtitle">Comprehensive health education through engaging and interactive methods</p>
+      <div class="activities-grid">
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="activity-icon"><i class="fas fa-video"></i></div>
+          <h3>Educational Videos</h3>
+          <p>Bengali cartoon videos including Dusto Jibanu, Sisimpur Handwashing, and Peppa Pig Hand Wash to make learning fun and relatable</p>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="activity-icon"><i class="fas fa-hands-wash"></i></div>
+          <h3>Practical Demonstrations</h3>
+          <p>Live demonstrations on proper handwashing techniques, toothbrushing methods, and personal hygiene practices</p>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="activity-icon"><i class="fas fa-question-circle"></i></div>
+          <h3>Interactive Quizzes</h3>
+          <p>Engaging quiz sessions with small prizes to reinforce learning and make the experience memorable for children</p>
+        </div>
+        <div class="activity-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="activity-icon"><i class="fas fa-bacteria"></i></div>
+          <h3>Germ Education</h3>
+          <p>Teaching children about germs, how they spread, and the importance of maintaining cleanliness to prevent diseases</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Gallery -->
+    <h2 class="section-title">Event Gallery</h2>
+    <p class="section-subtitle">Capturing moments of joy, learning, and transformation during our health awareness program</p>
+    <section class="gallery" data-aos="fade-up">
+      <div class="gallery-item">
+        <img src="image-e1.jpg" alt="Children learning about hygiene">
+        <div class="gallery-overlay">
+          <p>Children actively participating in hygiene education</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e2.jpg" alt="Handwashing demonstration">
+        <div class="gallery-overlay">
+          <p>Practical handwashing demonstration session</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e3.jpg" alt="Interactive quiz session">
+        <div class="gallery-overlay">
+          <p>Interactive quiz session with prizes</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e4.jpg" alt="Educational video screening">
+        <div class="gallery-overlay">
+          <p>Educational video screening for children</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e5.jpg" alt="Group learning activity">
+        <div class="gallery-overlay">
+          <p>Group learning activities and discussions</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e6.jpg" alt="Health awareness session">
+        <div class="gallery-overlay">
+          <p>Health awareness session in progress</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e7.jpg" alt="Community participation">
+        <div class="gallery-overlay">
+          <p>Community members actively participating</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e8.jpg" alt="Prize distribution">
+        <div class="gallery-overlay">
+          <p>Prize distribution to encourage learning</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e9.jpg" alt="Happy children">
+        <div class="gallery-overlay">
+          <p>Happy children after the program</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="image-e10.jpg" alt="Program conclusion">
+        <div class="gallery-overlay">
+          <p>Successful conclusion of the program</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-section">
+      <a class="btn btn-outline" href="../programs.html">
+        <i class="fas fa-arrow-left"></i> Back to Programs
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../programs.html">Programs</a>
+        <a href="../members.html">Our Team</a>
+        <a href="../contact.html">Contact</a>
+        
+      </div>
+      <div class="footer-bottom">
+        © 2025 Gramin Glow Foundation. All rights reserved. | Transforming Lives Through Health Education
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+    
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mobile-nav');
+      nav.classList.toggle('active');
+    }
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-nav').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
