@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team - Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="global image/Fevicon.png" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Premium Members Page Styles */
+    
+    /* Hero Section */
+    .premium-hero {
+      position: relative;
+      min-height: 70vh;
+      background: linear-gradient(135deg, #004d40 0%, #00695c 50%, #00796b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    
+    .premium-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    
+    .section-header p {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Leadership Section */
+    .leadership-section {
+      padding: 80px 0;
+      background: #f8f9fa;
+    }
+    
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .leader-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .leader-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .leader-image {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+    
+    .leader-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .leader-card:hover .leader-image img {
+      transform: scale(1.05);
+    }
+    
+    .leader-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 77, 64, 0.8), rgba(0, 121, 107, 0.8));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .leader-card:hover .leader-overlay {
+      opacity: 1;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .social-link:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+    
+    .leader-info {
+      padding: 30px;
+    }
+    
+    .leader-info h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    
+    .leader-role {
+      color: #00796b;
+      font-weight: 500;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 15px;
+    }
+    
+    .leader-bio {
+      color: #7f8c8d;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .view-profile {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .view-profile:hover {
+      color: #004d40;
+      gap: 12px;
+    }
+    
+    /* Team Members Section */
+    .team-members-section {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+    
+    .member-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+    
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+    
+    .member-avatar {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+    }
+    
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f8f9fa;
+    }
+    
+    .member-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 35px;
+      height: 35px;
+      background: linear-gradient(45deg, #ffd700, #ffed4e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-size: 14px;
+      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+    }
+    
+    .member-details h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+    
+    .member-position {
+      color: #00796b;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 15px;
+    }
+    
+    .member-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .skill-tag {
+      background: #e8f5e8;
+      color: #2e7d32;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .member-link {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border: 2px solid #00796b;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .member-link:hover {
+      background: #00796b;
+      color: white;
+    }
+    
+    /* Join Team CTA */
+    .join-team-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #004d40, #00796b);
+      color: white;
+      text-align: center;
+    }
+    
+    .cta-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    
+    .cta-content p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-primary, .btn-secondary {
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: #00796b;
+    }
+    
+    .btn-primary:hover {
+      background: #f8f9fa;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background: white;
+      color: #00796b;
+    }
+    
+    /* Premium Footer */
+    .premium-footer {
+      background: #2c3e50;
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-section h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ecf0f1;
+    }
+    
+    .footer-section p {
+      color: #bdc3c7;
+      line-height: 1.6;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-section ul li a {
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-section ul li a:hover {
+      color: #00796b;
+    }
+    
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+    
+    .footer-section .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .footer-section .social-links a {
+      width: 40px;
+      height: 40px;
+      background: #34495e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-section .social-links a:hover {
+      background: #00796b;
+      transform: translateY(-2px);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #34495e;
+      padding-top: 20px;
+      text-align: center;
+      color: #bdc3c7;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-stats {
+        gap: 20px;
+      }
+      
+      .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .members-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="home-link">
+        <img src="global image/LOGO.png" alt="logo" class="nav-logo">
+        <span class="org-name">GRAMIN GLOW FOUNDATION</span>
+      </a>
+    </div>
+
+    
+
+    <button class="nav-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="programs.html" class="nav-link"><i class="fas fa-tasks"></i> Programs</a></li>
+        <li><a href="members.html" class="nav-link active"><i class="fas fa-users"></i> Members</a></li>
+        <li><a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-overlay"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="premium-hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-users"></i>
+        <span>Our Leadership</span>
+      </div>
+      <h1 class="hero-title">Meet Our Dedicated Team</h1>
+      <p class="hero-subtitle">Passionate leaders committed to transforming rural communities through sustainable development and social impact.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Team Members</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Lives Impacted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section class="leadership-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Executive Leadership</h2>
+        <p>The visionary leaders steering our mission forward</p>
+      </div>
+      
+      <div class="leadership-grid">
+        <div class="leader-card premium-card" data-aos="fade-up">
+          <div class="leader-image">
+            <img src="core member/MONISANKAR.jpg" alt="Monisankar Ojha">
+            <div class="leader-overlay">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/monisankar-ojha-3b4286375" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a onclick="window.location.href='mailto:monisankarojha6@gmail.com'" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="leader-info">
+            <h3>Monisankar Ojha</h3>
+            <span class="leader-role">Member</span>
+            <p class="leader-bio">Visionary leader with 5+ years in rural development and community empowerment.</p>
+            <a href="core member/member1.html" class="view-profile">View Profile <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="leader-card premium-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="leader-image">
+            <img src="core member/ASHOKE.jpg" alt="Ashoke Santra">
+            <div class="leader-overlay">
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/ashoke-santra-738bb2318/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a onclick="window.location.href='mailto:santraashoke15@gmail.com'" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="leader-info">
+            <h3>Ashoke Santra</h3>
+            <span class="leader-role">Member</span>
+            <p class="leader-bio">Strategic planner specializing in organizational development and community outreach.</p>
+            <a href="core member/member2.html" class="view-profile">View Profile <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="leader-card premium-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="leader-image">
+            <img src="core member/BISHAMBHAR.jpg" alt="Bishambhar Maity">
+            <div class="leader-overlay">
+              <div class="social-links">
+                <a onclick="window.location.href='mailto:bishambharmaity@gmail.com'" class="social-link"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="leader-info">
+            <h3>Bishambhar Maity</h3>
+            <span class="leader-role">Member</span>
+            <p class="leader-bio">Financial expert ensuring transparent and efficient resource management.</p>
+            <a href="core member/member3.html" class="view-profile">View Profile <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Members Section -->
+  <section class="team-members-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Core Team Members</h2>
+        <p>Dedicated professionals driving our grassroots initiatives</p>
+      </div>
+      
+      <div class="members-grid">
+        <div class="member-card modern-card" data-aos="zoom-in">
+          <div class="member-avatar">
+            <img src="core member/SUMAN.jpg" alt="Suman Mandal">
+            <div class="member-badge">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="member-details">
+            <h4>Suman Mandal</h4>
+            <span class="member-position">Program Coordinator</span>
+            <div class="member-skills">
+              <span class="skill-tag">Health Programs</span>
+              <span class="skill-tag">Community Outreach</span>
+            </div>
+            <a href="core member/member4.html" class="member-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="member-card modern-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="member-avatar">
+            <img src="core member/SANTANU.jpg" alt="Santanu Mandal">
+            <div class="member-badge">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="member-details">
+            <h4>Santanu Mandal</h4>
+            <span class="member-position">Education Specialist</span>
+            <div class="member-skills">
+              <span class="skill-tag">Community Outreach</span>
+              <span class="skill-tag">Teacher Training</span>
+            </div>
+            <a href="core member/member5.html" class="member-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="member-card modern-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="member-avatar">
+            <img src="core member/RUPAM.jpg" alt="Rupam Ojha">
+            <div class="member-badge">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="member-details">
+            <h4>Rupam Ojha</h4>
+            <span class="member-position">Technology Coordinator</span>
+            <div class="member-skills">
+              <span class="skill-tag">Community Outreach</span>
+              <span class="skill-tag">Market Access</span>
+            </div>
+            <a href="core member/member6.html" class="member-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="member-card modern-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="member-avatar">
+            <img src="core member/ANINDYA.jpg" alt="Anindya Sau">
+            <div class="member-badge">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="member-details">
+            <h4>Anindya Sau</h4>
+            <span class="member-position">Program Coordinator</span>
+            <div class="member-skills">
+              <span class="skill-tag">Community Outreach</span>
+              <span class="skill-tag">Data Management</span>
+            </div>
+            <a href="core member/member7.html" class="member-link">Learn More</a>
+          </div>
+        </div>
+        <div class="member-card modern-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="member-avatar">
+            <img src="core member/BISWAJYOTIMAITY.jpg" alt="Anindya Sau">
+            <div class="member-badge">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="member-details">
+            <h4>Biswa Jyoti Maity</h4>
+            <span class="member-position">Program Coordinator</span>
+            <div class="member-skills">
+              <span class="skill-tag">Community Outreach</span>
+              <span class="skill-tag">Data Management</span>
+            </div>
+            <a href="core member/member8.html" class="member-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Team CTA -->
+  <section class="join-team-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Join Our Mission</h2>
+        <p>Be part of the change you want to see in rural communities</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn-primary">Volunteer With Us</a>
+          <a href="about.html" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Donate Button -->
+  <button class="floating-donate" aria-label="Donate">
+    <i class="fas fa-heart"></i>
+    <span>Donate</span>
+  </button>
+
+  <!-- Donate Popup -->
+  <div id="donate-popup" class="popup" role="dialog" aria-hidden="true">
+    <div class="popup-box">
+      <button class="popup-close" aria-label="Close">&times;</button>
+      <h3>Support Our Mission</h3>
+      <p>Your contribution helps us create lasting impact in rural communities.</p>
+      <div class="donation-methods">
+        <div class="qr-section">
+          <img src="global image/QR.jpg" alt="QR code scanner" class="qr">
+          <p>UPI Number: 8389974399</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="premium-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="global image/LOGO.png" alt="Gramin Glow Foundation" class="footer-logo">
+          <p>Empowering rural communities through sustainable development.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect With Us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com/graminglowfoundation" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/gramin.glow.foundation?igsh=MXQ5MGN4ZXE2NWVqcQ==" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Gramin Glow Foundation. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Simple AOS-like animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

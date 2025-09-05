@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agriculture Program — Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="global image/Fevicon.png" />
+
+  <!-- Google Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --primary-green: #2d5016;
+      --secondary-green: #4a7c59;
+      --accent-gold: #d4af37;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --bg-light: #f8fffe;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 50px; background: var(--white); color: var(--text-dark); position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08); backdrop-filter: blur(10px);
+    }
+    .nav-left { display: flex; align-items: center; gap: 15px; }
+    .nav-logo { width: 45px; height: 45px; border-radius: 8px; }
+    .navbar .org-name { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 22px; color: var(--primary-green); }
+    .navbar ul { display: flex; list-style: none; gap: 30px; margin: 0; padding: 0; }
+    .navbar ul li a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color 0.3s; }
+    .navbar ul li a:hover { color: var(--primary-green); }
+    .navbar ul li a.active { color: var(--primary-green); position: relative; }
+    .navbar ul li a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--accent-gold); }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+      color: var(--white); padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; }
+    .hero-subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; font-weight: 300; }
+    .hero-stats { display: flex; justify-content: center; gap: 50px; margin-top: 40px; }
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--accent-gold); }
+    .stat-label { font-size: 0.9rem; opacity: 0.8; }
+
+    main.section { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-green); margin-bottom: 15px; }
+    .section-subtitle { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+    .events-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;
+    }
+
+    .event-card {
+      background: var(--white); border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow); transition: all 0.3s ease; position: relative;
+    }
+    .event-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    .event-card-image {
+      width: 100%; height: 220px; object-fit: cover; transition: transform 0.3s ease;
+    }
+    .event-card:hover .event-card-image { transform: scale(1.05); }
+    .event-card-content { padding: 30px; }
+    .event-date {
+      display: inline-block; background: var(--primary-green); color: var(--white);
+      padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 15px;
+    }
+    .event-card h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .event-card p {
+      color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;
+    }
+    .event-meta {
+      display: flex; align-items: center; gap: 20px; margin-bottom: 20px;
+      font-size: 0.9rem; color: var(--text-light);
+    }
+    .event-meta i { color: var(--primary-green); }
+    .event-btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px;
+      background: var(--primary-green); color: var(--white); text-decoration: none;
+      border-radius: 25px; font-weight: 500; transition: all 0.3s ease;
+    }
+    .event-btn:hover { background: var(--secondary-green); transform: translateX(5px); }
+    .event-status {
+      position: absolute; top: 15px; right: 15px;
+      background: var(--accent-gold); color: var(--white);
+      padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 600;
+    }
+    .event-status.upcoming { background: #28a745; }
+    .event-status.completed { background: #6c757d; }
+    
+    .hidden-events { display: none; }
+    .show-more-btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 30px;
+      background: transparent; color: var(--primary-green); border: 2px solid var(--primary-green);
+      border-radius: 25px; font-weight: 500; cursor: pointer; margin: 30px auto;
+      transition: all 0.3s ease;
+    }
+    .show-more-btn:hover {
+      background: var(--primary-green); color: var(--white);
+    }
+
+    .impact-section {
+      background: var(--white); padding: 80px 0; margin: 80px 0;
+      border-radius: 30px; box-shadow: var(--shadow);
+    }
+    .impact-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;
+      max-width: 1000px; margin: 0 auto; padding: 0 20px;
+    }
+    .impact-item {
+      text-align: center; padding: 30px 20px;
+    }
+    .impact-icon {
+      width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--white); font-size: 2rem;
+    }
+    .impact-number {
+      font-size: 2.5rem; font-weight: 700; color: var(--primary-green); margin-bottom: 10px;
+    }
+    .impact-label {
+      font-size: 1.1rem; color: var(--text-light); font-weight: 500;
+    }
+
+    .cta-section {
+      text-align: center; margin: 80px 0;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 35px; margin: 10px; border-radius: 30px; border: none;
+      font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+      color: var(--white);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(45,80,22,0.3); }
+    .btn-outline {
+      background: transparent; color: var(--primary-green); border: 2px solid var(--primary-green);
+    }
+    .btn-outline:hover { background: var(--primary-green); color: var(--white); }
+
+    footer {
+      background: var(--text-dark); color: var(--white); padding: 50px 0 30px;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;
+    }
+    .footer-links a {
+      color: var(--white); text-decoration: none; opacity: 0.8; transition: opacity 0.3s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+      font-size: 0.9rem; opacity: 0.7;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .navbar { padding: 15px 20px; }
+      .navbar ul { gap: 20px; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-stats { flex-direction: column; gap: 30px; }
+      .section-title { font-size: 2rem; }
+      .events-grid { grid-template-columns: 1fr; }
+      .impact-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="home-link"></a>
+      <img src="global image/LOGO.png" class="nav-logo" alt="">
+      <span class="org-name">Gramin Glow Foundation</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="programs.html" class="nav-link">Programs</a></li>
+        <li><a href="members.html" class="nav-link">Members</a></li>
+        <li><a href="agriculture.html" class="nav-link active">Agriculture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title" data-aos="fade-up">Sustainable Agriculture Initiative</h1>
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Empowering rural communities through modern farming techniques, organic practices, and sustainable livelihood programs
+      </p>
+      
+    </div>
+  </section>
+
+  <main class="section">
+    <!-- Impact Section -->
+    <section class="impact-section" data-aos="fade-up">
+      <div class="section-header">
+        <h2 class="section-title">Our Agricultural Impact</h2>
+        <p class="section-subtitle">Transforming rural livelihoods through sustainable farming practices and community empowerment</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="impact-icon"><i class="fas fa-seedling"></i></div>
+          <div class="impact-number">0</div>
+          <div class="impact-label">Acres Under Organic Farming</div>
+        </div>
+        <div class="impact-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="impact-icon"><i class="fas fa-tractor"></i></div>
+          <div class="impact-number">0</div>
+          <div class="impact-label">Modern Equipment Provided</div>
+        </div>
+        
+        <div class="impact-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="impact-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="impact-number">0%</div>
+          <div class="impact-label">Yield Improvement</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="section-header">
+      <h2 class="section-title">Recent Initiatives</h2>
+      <p class="section-subtitle">Successful programs that have made a lasting impact on farming communities</p>
+    </section>
+    <section class="events-grid">
+      <div class="event-card" data-aos="fade-up">
+        <div class="event-status completed">Completed</div>
+        <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=220&fit=crop" alt="Organic Farming Workshop" class="event-card-image">
+        <div class="event-card-content">
+          <span class="event-date">2025</span>
+          <h3>Coming soon</h3>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> 15 Villages</span>
+            <span><i class="fas fa-users"></i> 200 Participants</span>
+          </div>
+          <p>Comprehensive training on organic farming techniques, soil health management, and natural pest control methods for sustainable agriculture.</p>
+          <a href="#" class="event-btn">View Results <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="event-status completed">Completed</div>
+        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=220&fit=crop" alt="Seed Distribution" class="event-card-image">
+        <div class="event-card-content">
+          <span class="event-date"> 2025</span>
+          <h3>Coming Soon</h3>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> 25 Villages</span>
+            <span><i class="fas fa-seedling"></i> 500 Farmers</span>
+          </div>
+          <p>Distribution of certified high-yield, drought-resistant seeds along with training on modern cultivation practices.</p>
+          <a href="#" class="event-btn">View Impact <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Hidden Events -->
+      <div class="event-card hidden-events" data-aos="fade-up">
+        <div class="event-status completed">Completed</div>
+        <img src="https://images.unsplash.com/photo-1592982736920-1b0d8b3c8c2c?w=400&h=220&fit=crop" alt="Soil Testing Program" class="event-card-image">
+        <div class="event-card-content">
+          <span class="event-date"> 2025</span>
+          <h3>Coming Soon</h3>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> 30 Villages</span>
+            <span><i class="fas fa-vial"></i> 800 Tests</span>
+          </div>
+          <p>Free soil testing services to help farmers understand nutrient deficiencies and optimize fertilizer usage for better crop yields.</p>
+          <a href="#" class="event-btn">View Report <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      
+      
+      
+    </section>
+    
+    <div style="text-align: center;">
+      <button class="show-more-btn" id="showMoreBtn">
+        <i class="fas fa-plus"></i> View More Events
+      </button>
+    </div>
+
+    <!-- Upcoming Events -->
+    <section class="section-header" style="margin-top: 80px;">
+      <h2 class="section-title">Upcoming Programs</h2>
+      <p class="section-subtitle">Join us in our mission to revolutionize agriculture in rural communities</p>
+    </section>
+    <section class="events-grid">
+      <div class="event-card" data-aos="fade-up">
+        <div class="event-status upcoming">Upcoming</div>
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=220&fit=crop" alt="Smart Irrigation" class="event-card-image">
+        <div class="event-card-content">
+          <span class="event-date"> 2025</span>
+          <h3>Coming Soon</h3>
+          <div class="event-meta">
+            <span><i class="fas fa-map-marker-alt"></i> 20 Villages</span>
+            <span><i class="fas fa-calendar"></i> 3 Days</span>
+          </div>
+          <p>Introduction to drip irrigation systems, water conservation techniques, and IoT-based farming solutions for efficient water management.</p>
+          <a href="#" class="event-btn">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      
+    </section>
+
+    <div class="cta-section">
+      <a class="btn btn-outline" href="programs.html">
+        <i class="fas fa-arrow-left"></i> Back to Programs
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="programs.html">Programs</a>
+        <a href="members.html">Our Team</a>
+        <a href="contact.html">Contact</a>
+        
+      </div>
+      <div class="footer-bottom">
+        © 2025 Gramin Glow Foundation. All rights reserved. | Empowering Rural Communities
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+    
+    // Show/Hide Events Functionality
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const hiddenEvents = document.querySelectorAll('.hidden-events');
+    let eventsVisible = false;
+    
+    showMoreBtn.addEventListener('click', function() {
+      if (!eventsVisible) {
+        hiddenEvents.forEach(event => {
+          event.style.display = 'block';
+        });
+        showMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Events';
+        eventsVisible = true;
+      } else {
+        hiddenEvents.forEach(event => {
+          event.style.display = 'none';
+        });
+        showMoreBtn.innerHTML = '<i class="fas fa-plus"></i> View More Events';
+        eventsVisible = false;
+      }
+    });
+
+
+  </script>
+</body>
+</html>

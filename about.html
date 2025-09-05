@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us — Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="global image/Fevicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #059669;
+      --accent: #dc2626;
+      --gold: #d97706;
+      --navy: #1e293b;
+      --forest: #166534;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+
+    /* Premium Header */
+    .header {
+      background: var(--white);
+      padding: 1.5rem 0;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 0.75rem;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .org-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .org-name:hover {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: rgba(30, 58, 138, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--navy) 100%);
+      color: var(--white);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Mission Section */
+    .mission-section {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+
+    .mission-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-100);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--primary);
+      transition: all 0.4s ease;
+    }
+
+    .pillar-card.health::before {
+      background: linear-gradient(90deg, #ef4444, #f87171);
+    }
+
+    .pillar-card.education::before {
+      background: linear-gradient(90deg, var(--primary), #60a5fa);
+    }
+
+    .pillar-card.agriculture::before {
+      background: linear-gradient(90deg, var(--secondary), #4ade80);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-0.75rem);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--secondary);
+    }
+
+    .pillar-card:hover::before {
+      height: 8px;
+    }
+
+    .pillar-icon {
+      padding: 2.5rem 2.5rem 1rem;
+      text-align: center;
+    }
+
+    .icon-wrapper {
+      width: 5rem;
+      height: 5rem;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .pillar-card.health .icon-wrapper {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+    }
+
+    .pillar-card.education .icon-wrapper {
+      background: linear-gradient(135deg, var(--primary), #60a5fa);
+    }
+
+    .pillar-card.agriculture .icon-wrapper {
+      background: linear-gradient(135deg, var(--secondary), #4ade80);
+    }
+
+    .pillar-card:hover .icon-wrapper {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .pillar-icon i {
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .pillar-content {
+      padding: 0 2.5rem 2.5rem;
+    }
+
+    .pillar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .pillar-description {
+      color: var(--gray-600);
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Approach Section */
+    .approach-section {
+      padding: 6rem 2rem;
+      background: var(--gray-50);
+    }
+
+    .approach-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .approach-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-100);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .approach-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 1rem 1rem 0 0;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .approach-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .approach-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .approach-number {
+      width: 3rem;
+      height: 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .approach-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .approach-description {
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--secondary) 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+
+    .values-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
+      pointer-events: none;
+    }
+
+    .values-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .values-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-item {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .value-item:hover {
+      transform: translateY(-0.5rem);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    .value-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-description {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--white);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .cta-description {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--secondary);
+      border: 2px solid var(--secondary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--secondary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Floating Donate Button */
+    .floating-donate {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      color: var(--white);
+      border: none;
+      border-radius: 3rem;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-xl);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .floating-donate:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(220, 38, 38, 0.4);
+    }
+
+    .heart {
+      animation: heartbeat 2s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Donation Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .popup-content {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 1rem;
+      text-align: center;
+      max-width: 28rem;
+      width: 90%;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+      animation: popupSlide 0.3s ease;
+    }
+
+    @keyframes popupSlide {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(2rem);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--gray-600);
+      transition: color 0.3s ease;
+    }
+
+    .popup-close:hover {
+      color: var(--accent);
+    }
+
+    .popup h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .qr-code {
+      max-width: 12rem;
+      margin: 1.5rem auto;
+      border: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      background: var(--gray-50);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .floating-donate {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.875rem 1.25rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .values-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Premium Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" style="display: flex; align-items: center; gap: 1.5rem; text-decoration: none;">
+          <img src="global image/LOGO.png" alt="Gramin Glow Foundation" class="logo">
+          <span class="org-name">Gramin Glow Foundation</span>
+        </a>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="members.html" class="nav-link">Members</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="history.html" class="nav-link">History</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Empowering Rural Communities</h1>
+      <p class="hero-subtitle">"A dedicated non-profit organization committed to transforming lives through education, health awareness, sustainable development, and social welfare initiatives that create lasting positive change."</p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="mission-container">
+      <div class="section-header">
+        <span class="section-badge">Our Foundation</span>
+        <h2 class="section-title">Three Pillars of Change</h2>
+        <p class="section-description">Our mission is built on three interconnected pillars that address the fundamental needs of rural communities, creating sustainable pathways to prosperity and well-being.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Health Pillar -->
+        <div class="pillar-card health">
+          <div class="pillar-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+          </div>
+          <div class="pillar-content">
+            <h3 class="pillar-title">Health & Wellness</h3>
+            <p class="pillar-description">We create awareness about hygiene, nutrition, and preventive healthcare while ensuring access to medical facilities. Our goal is to reduce health inequalities and ensure every individual can lead a healthy, dignified life.</p>
+          </div>
+        </div>
+
+        <!-- Education Pillar -->
+        <div class="pillar-card education">
+          <div class="pillar-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+          </div>
+          <div class="pillar-content">
+            <h3 class="pillar-title">Education & Learning</h3>
+            <p class="pillar-description">Education is the foundation of empowerment. We provide opportunities for quality education, literacy programs, and skill development initiatives, eliminating barriers to learning and transforming lives through knowledge.</p>
+          </div>
+        </div>
+
+        <!-- Agriculture Pillar -->
+        <div class="pillar-card agriculture">
+          <div class="pillar-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-seedling"></i>
+            </div>
+          </div>
+          <div class="pillar-content">
+            <h3 class="pillar-title">Sustainable Agriculture</h3>
+            <p class="pillar-description">Agriculture is the backbone of rural livelihood. We promote sustainable farming practices, modern techniques, and farmer training programs to increase productivity, income, and ensure food security for communities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="approach-section">
+    <div class="approach-container">
+      <div class="section-header">
+        <span class="section-badge">Our Methodology</span>
+        <h2 class="section-title">Our Approach</h2>
+        <p class="section-description">We believe in sustainable, community-driven development that creates lasting change through collaboration, empowerment, and integrated solutions.</p>
+      </div>
+
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-number">1</div>
+          <h3 class="approach-title">Community-Centered Development</h3>
+          <p class="approach-description">Real change starts within the community. We listen to rural voices, understand their challenges, and work hand-in-hand to create solutions. By involving local leaders, women, youth, and farmers, we ensure programs are implemented with the community, building trust and lasting impact.</p>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-number">2</div>
+          <h3 class="approach-title">Integrated Solutions</h3>
+          <p class="approach-description">Health, education, and agriculture are deeply connected. We adopt a holistic approach that integrates these sectors to create sustainable results. Good health improves learning, education increases awareness, and modern agriculture ensures food security and income.</p>
+        </div>
+
+        <div class="approach-card">
+          <div class="approach-number">3</div>
+          <h3 class="approach-title">Capacity Building</h3>
+          <p class="approach-description">Our approach goes beyond providing services—we empower people to take charge of their development. Through training, workshops, and skill development, we build community capacity to create self-reliant, thriving villages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="values-container">
+      <h2 class="values-title">Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="value-title">Compassion</h3>
+          <p class="value-description">Genuine care for every individual we serve</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="value-title">Integrity</h3>
+          <p class="value-description">Transparent and ethical in all our actions</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="value-title">Collaboration</h3>
+          <p class="value-description">Working together for collective impact</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="value-title">Sustainability</h3>
+          <p class="value-description">Creating lasting change for future generations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Join Our Mission</h2>
+      <p class="cta-description">Together, we can create sustainable change that transforms rural communities and builds a brighter future for generations to come. Every contribution, big or small, makes a meaningful difference.</p>
+      <div class="cta-buttons">
+        <a href="programs.html" class="btn btn-primary">
+          <i class="fas fa-hand-holding-heart"></i>
+          <span>Explore Our Programs</span>
+        </a>
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fas fa-home"></i>
+          <span>Return Home</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Donate Button -->
+  <button class="floating-donate" onclick="openDonatePopup()">
+    <span class="heart">❤️</span>
+    <span>Support Us</span>
+  </button>
+
+  <!-- Donation Popup -->
+  <div id="donatePopup" class="popup">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closeDonatePopup()">&times;</button>
+      <h3>Empower Change</h3>
+      <p>Your contribution directly supports our community development initiatives</p>
+      <img src="global image/QR.jpg" alt="Donation QR Code" class="qr-code">
+      <p><strong>UPI Number:</strong> 8389974399</p>
+      <p>Every contribution creates lasting impact</p>
+    </div>
+  </div>
+
+  <script>
+    function openDonatePopup() {
+      document.getElementById('donatePopup').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDonatePopup() {
+      document.getElementById('donatePopup').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+      const popup = document.getElementById('donatePopup');
+      if (event.target === popup) {
+        closeDonatePopup();
+      }
+    }
+
+    // Enhanced scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.pillar-card, .approach-card, .value-item').forEach((element, index) => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>

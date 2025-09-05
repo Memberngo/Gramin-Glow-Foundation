@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us — Gramin Glow Foundation</title>
+  <link rel="icon" type="image/png" href="global image/Fevicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #059669;
+      --accent: #dc2626;
+      --gold: #d97706;
+      --navy: #1e293b;
+      --forest: #166534;
+      --white: #ffffff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.6;
+    }
+
+    /* Premium Header */
+    .header {
+      background: var(--white);
+      padding: 1.5rem 0;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      height: 4rem;
+      width: 4rem;
+      border-radius: 0.75rem;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .org-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .org-name:hover {
+      color: var(--primary);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background: rgba(30, 58, 138, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--navy) 100%);
+      color: var(--white);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 6rem 2rem;
+      background: var(--white);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gray-100);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-0.75rem);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--secondary);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .contact-icon {
+      padding: 2.5rem 2.5rem 1rem;
+      text-align: center;
+    }
+
+    .icon-wrapper {
+      width: 5rem;
+      height: 5rem;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .contact-card:hover .icon-wrapper {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .contact-icon i {
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .contact-content {
+      padding: 0 2.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-info {
+      color: var(--gray-600);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .contact-action {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--primary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover .contact-action {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Social Media Section */
+    .social-section {
+      padding: 6rem 2rem;
+      background: var(--gray-50);
+    }
+
+    .social-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .social-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3rem;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .social-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-100);
+      transition: all 0.4s ease;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .social-card.facebook::before { background: #1877f2; }
+    .social-card.instagram::before { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743); }
+    .social-card.linkedin::before { background: #0077b5; }
+    .social-card.medium::before { background: #000000; }
+
+    .social-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: var(--shadow-lg);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .social-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .social-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.4s ease;
+    }
+
+    .social-card.facebook .social-icon { color: #1877f2; }
+    .social-card.instagram .social-icon { color: #e6683c; }
+    .social-card.linkedin .social-icon { color: #0077b5; }
+    .social-card.medium .social-icon { color: #000000; }
+
+    .social-card:hover .social-icon {
+      transform: scale(1.1);
+    }
+
+    .social-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .social-description {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+
+    /* Message Form Section */
+    .message-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--forest) 0%, var(--secondary) 100%);
+      color: var(--white);
+      position: relative;
+    }
+
+    .message-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/></svg>') repeat;
+      pointer-events: none;
+    }
+
+    .message-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .message-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .message-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .message-subtitle {
+      font-size: 1.125rem;
+      opacity: 0.9;
+    }
+
+    .message-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem 0 0.5rem 0;
+      font-size: 1rem;
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      background: transparent;
+      outline: none;
+      color: var(--white);
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-input::placeholder {
+      color: transparent;
+    }
+
+    .form-label {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus + .form-label,
+    .form-input:valid + .form-label {
+      top: 0;
+      font-size: 0.875rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .form-input:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+      padding-top: 1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+    }
+
+    /* Floating Donate Button */
+    .floating-donate {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      color: var(--white);
+      border: none;
+      border-radius: 3rem;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-xl);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .floating-donate:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(220, 38, 38, 0.4);
+    }
+
+    .heart {
+      animation: heartbeat 2s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Donation Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .popup-content {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 1rem;
+      text-align: center;
+      max-width: 28rem;
+      width: 90%;
+      position: relative;
+      box-shadow: var(--shadow-xl);
+      animation: popupSlide 0.3s ease;
+    }
+
+    @keyframes popupSlide {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(2rem);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--gray-600);
+      transition: color 0.3s ease;
+    }
+
+    .popup-close:hover {
+      color: var(--accent);
+    }
+
+    .popup h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .qr-code {
+      max-width: 12rem;
+      margin: 1.5rem auto;
+      border: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 0.75rem;
+      background: var(--gray-50);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-donate {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.875rem 1.25rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .message-title {
+        font-size: 2rem;
+      }
+
+      .social-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Premium Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <a href="index.html" style="display: flex; align-items: center; gap: 1.5rem; text-decoration: none;">
+          <img src="global image/LOGO.png" alt="Gramin Glow Foundation" class="logo">
+          <span class="org-name">Gramin Glow Foundation</span>
+        </a>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="programs.html" class="nav-link">Programs</a></li>
+          <li><a href="members.html" class="nav-link">Members</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="history.html" class="nav-link">History</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Connect With Us</h1>
+      <p class="hero-subtitle">We're here to answer your questions, discuss partnerships, and explore how we can work together to create positive change in rural communities</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="section-header">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Multiple Ways to Reach Us</h2>
+        <p class="section-description">Choose the most convenient way to connect with our team. We're committed to responding promptly and providing the information you need.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Address -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+          </div>
+          <div class="contact-content">
+            <h3 class="contact-title">Visit Our Office</h3>
+            <p class="contact-info">Kamalpur, Balighai, Egra-II<br>East Midnapore, West Bengal-721422</p>
+            <span class="contact-action">Get Directions</span>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="contact-card" onclick="window.location.href='tel:+919046927764'">
+          <div class="contact-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-phone"></i>
+            </div>
+          </div>
+          <div class="contact-content">
+            <h3 class="contact-title">Call Us</h3>
+            <p class="contact-info">+91 9046927764</p>
+            <span class="contact-action">Tap to call</span>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card" onclick="window.location.href='mailto:graminglowfoundation2025@gmail.com'">
+          <div class="contact-icon">
+            <div class="icon-wrapper">
+              <i class="fas fa-envelope"></i>
+            </div>
+          </div>
+          <div class="contact-content">
+            <h3 class="contact-title">Email Us</h3>
+            <p class="contact-info">graminglowfoundation2025@gmail.com</p>
+            <span class="contact-action">Send email</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section class="social-section">
+    <div class="social-container">
+      <h2 class="social-title">Follow Our Journey</h2>
+      <div class="social-grid">
+        <a href="https://www.facebook.com/share/171ivrMM7K/" target="_blank" class="social-card facebook">
+          <div class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <h3 class="social-name">Facebook</h3>
+          <p class="social-description">Updates and community stories</p>
+        </a>
+
+        <a href="https://www.instagram.com/gramin.glow.foundation?igsh=MXQ5MGN4ZXE2NWVqcQ==" target="_blank" class="social-card instagram">
+          <div class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <h3 class="social-name">Instagram</h3>
+          <p class="social-description">Visual stories of impact</p>
+        </a>
+
+        <a href="https://www.linkedin.com/company/gramin-glow-foundation/" target="_blank" class="social-card linkedin">
+          <div class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <h3 class="social-name">LinkedIn</h3>
+          <p class="social-description">Professional updates</p>
+        </a>
+
+        <a href="https://medium.com/@graminglowfoundation2025" target="_blank" class="social-card medium">
+          <div class="social-icon">
+            <i class="fab fa-medium-m"></i>
+          </div>
+          <h3 class="social-name">Medium</h3>
+          <p class="social-description">In-depth articles and insights</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message Form Section -->
+  <section class="message-section">
+    <div class="message-container">
+      <div class="message-header">
+        <h2 class="message-title">Send Us a Message</h2>
+        <p class="message-subtitle">Have questions about our programs or want to get involved? We'd love to hear from you.</p>
+      </div>
+
+      <form class="message-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="text" class="form-input" id="fullName" required>
+              <label for="fullName" class="form-label">Full Name</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input type="email" class="form-input" id="email" required>
+              <label for="email" class="form-label">Email Address</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <input type="text" class="form-input" id="subject" required>
+            <label for="subject" class="form-label">Subject</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <textarea class="form-input form-textarea" id="message" required></textarea>
+            <label for="message" class="form-label">Your Message</label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Floating Donate Button -->
+  <button class="floating-donate" onclick="openDonatePopup()">
+    <span class="heart">❤️</span>
+    <span>Support Us</span>
+  </button>
+
+  <!-- Donation Popup -->
+  <div id="donatePopup" class="popup">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closeDonatePopup()">&times;</button>
+      <h3>Empower Change</h3>
+      <p>Your contribution directly supports our community development initiatives</p>
+      <img src="global image/QR.jpg" alt="Donation QR Code" class="qr-code">
+      <p><strong>UPI Number:</strong> 8389974399</p>
+      <p>Every contribution creates lasting impact</p>
+    </div>
+  </div>
+
+  <script>
+    function openDonatePopup() {
+      document.getElementById('donatePopup').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDonatePopup() {
+      document.getElementById('donatePopup').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+      const popup = document.getElementById('donatePopup');
+      if (event.target === popup) {
+        closeDonatePopup();
+      }
+    }
+
+    // Form submission - Opens email client
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      const emailBody = `Name: ${fullName}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+      const mailtoLink = `mailto:graminglowfoundation2025@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+      
+      window.location.href = mailtoLink;
+    });
+
+    // Enhanced scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.contact-card, .social-card').forEach((element, index) => {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(30px)';
+      element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
