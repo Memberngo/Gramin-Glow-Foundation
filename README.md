@@ -1,1 +1,0 @@
-# Gramin-Glow-Foundation
